@@ -103,11 +103,11 @@ class Basket {
         else if (idx === -1) {
             console.log('Такого товара нет.')
         }
-        else if (this.goods[idx].amount === 0) {
-            this.goods.splice(idx, 1);
-        }
         else if (this.goods[idx].amount >= amount) {
             this.goods[idx].amount -= amount;
+            if (this.goods[idx].amount === 0) {
+                this.goods.splice(idx, 1);
+            }
         }
         else if (this.goods[idx].amount < amount) {
             console.log('Ошибка: неправильно введён параметр количества. Попробуйте ещё раз.');
@@ -236,13 +236,13 @@ basket.add(good3, 15);
 // basket.removeUnavailable();
 // console.log(basket);
 
-basket.remove(good1, 1);
-// basket.remove(good2, 12);
-basket.remove(good3, 30);
+basket.remove(good1, 5);
+basket.remove(good2, 10);
+// basket.remove(good3, 30);
 console.log(basket);
 
-console.log(basket.totalAmount);
-console.log(basket.totalSum);
+// console.log(basket.totalAmount);
+// console.log(basket.totalSum);
 
-basket.clear();
-console.log(basket);
+// basket.clear();
+// console.log(basket);
